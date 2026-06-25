@@ -1,0 +1,2079 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitar Presupuesto | CanaryWeb Studio</title>
+  <meta name="description" content="Configura tu página web ideal con CanaryWeb Studio. Elige plan, añade extras y recibe tu presupuesto personalizado en Tenerife.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Solicitar Presupuesto | CanaryWeb Studio">
+  <meta property="og:description" content="Configura tu página web ideal paso a paso y recibe un presupuesto personalizado.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta name="theme-color" content="#0B1F3A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    :root {
+      --primary: #0077FF;
+      --primary-dark: #0055CC;
+      --primary-light: #3399FF;
+      --dark: #0B1F3A;
+      --dark-2: #122D52;
+      --light: #FFFFFF;
+      --bg: #FFFFFF;
+      --bg-alt: #F6F8FC;
+      --text: #1A1A2E;
+      --text-light: #5A6A7E;
+      --text-muted: #94A3B8;
+      --border: #E5E9F0;
+      --card-bg: #FFFFFF;
+      --shadow: 0 4px 24px rgba(11, 31, 58, 0.08);
+      --shadow-lg: 0 12px 48px rgba(11, 31, 58, 0.12);
+      --shadow-xl: 0 20px 60px rgba(11, 31, 58, 0.15);
+      --gradient: linear-gradient(135deg, #0077FF, #0055CC);
+      --gradient-hero: linear-gradient(135deg, #0B1F3A 0%, #122D52 50%, #0B1F3A 100%);
+      --radius: 16px;
+      --radius-sm: 8px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --max-width: 1000px;
+      --nav-height: 64px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0A0E17;
+      --bg-alt: #111827;
+      --text: #E8EDF5;
+      --text-light: #94A3B8;
+      --border: #1E2A3E;
+      --card-bg: #111827;
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.4);
+      --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg-alt);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background var(--transition), color var(--transition);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER */
+    .header {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--nav-height);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--text);
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .theme-toggle {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: var(--text);
+      transition: all var(--transition);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-back-home {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-light);
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+
+    .btn-back-home:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* PROGRESS */
+    .progress-section {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0 0;
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .progress-steps {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      padding-bottom: 20px;
+    }
+
+    .progress-steps::before {
+      content: '';
+      position: absolute;
+      top: 16px;
+      left: 17px;
+      right: 17px;
+      height: 2px;
+      background: var(--border);
+      z-index: 0;
+    }
+
+    .progress-steps::after {
+      content: '';
+      position: absolute;
+      top: 16px;
+      left: 17px;
+      height: 2px;
+      background: var(--gradient);
+      z-index: 1;
+      transition: width 0.6s ease;
+      width: 0%;
+    }
+
+    .progress-steps[data-step="1"]::after { width: 0%; }
+    .progress-steps[data-step="2"]::after { width: calc(33.33% - 17px); }
+    .progress-steps[data-step="3"]::after { width: calc(66.66% - 17px); }
+    .progress-steps[data-step="4"]::after { left: 17px; width: calc(100% - 34px); }
+
+    .progress-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      z-index: 2;
+      cursor: default;
+    }
+
+    .progress-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--bg-alt);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      transition: all 0.5s ease;
+    }
+
+    .progress-step.active .progress-circle {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+      box-shadow: 0 0 0 4px rgba(0, 119, 255, 0.15);
+    }
+
+    .progress-step.done .progress-circle {
+      background: #10B981;
+      border-color: #10B981;
+      color: white;
+    }
+
+    .progress-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color var(--transition);
+      white-space: nowrap;
+    }
+
+    .progress-step.active .progress-label {
+      color: var(--primary);
+    }
+
+    .progress-step.done .progress-label {
+      color: #10B981;
+    }
+
+    /* MAIN */
+    .main {
+      padding: 40px 0 120px;
+      min-height: calc(100vh - 160px);
+    }
+
+    .step-container {
+      display: none;
+      animation: fadeSlideIn 0.5s ease;
+    }
+
+    .step-container.active {
+      display: block;
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .step-title {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      color: var(--text-light);
+      margin-bottom: 32px;
+      font-size: 1rem;
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: all var(--transition);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow);
+    }
+
+    /* STEP 1: PLAN SELECTION */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .plan-card {
+      background: var(--card-bg);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      cursor: pointer;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .plan-card:hover {
+      border-color: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .plan-card.selected {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.12), var(--shadow-lg);
+    }
+
+    .plan-card .popular-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--gradient);
+      color: white;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .plan-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .plan-price {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .plan-price span {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-light);
+    }
+
+    .plan-features {
+      list-style: none;
+      margin-bottom: 16px;
+    }
+
+    .plan-features li {
+      padding: 7px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .plan-features li:last-child {
+      border-bottom: none;
+    }
+
+    .plan-features li i {
+      color: var(--primary);
+      font-size: 0.8rem;
+      width: 16px;
+      flex-shrink: 0;
+    }
+
+    .plan-check {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 16px;
+      transition: all var(--transition);
+    }
+
+    .plan-card.selected .plan-check {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    .plan-check i {
+      font-size: 0.7rem;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .plan-card.selected .plan-check i {
+      opacity: 1;
+    }
+
+    /* STEP 2: EXTRAS */
+    .extras-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .extra-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all var(--transition);
+    }
+
+    .extra-item:hover {
+      border-color: var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .extra-item.selected {
+      border-color: var(--primary);
+      background: rgba(0, 119, 255, 0.03);
+    }
+
+    [data-theme="dark"] .extra-item.selected {
+      background: rgba(0, 119, 255, 0.06);
+    }
+
+    .extra-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(0, 119, 255, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      color: var(--primary);
+      flex-shrink: 0;
+      transition: background var(--transition);
+    }
+
+    .extra-item.selected .extra-icon {
+      background: var(--primary);
+      color: white;
+    }
+
+    .extra-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .extra-info h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .extra-info p {
+      font-size: 0.82rem;
+      color: var(--text-light);
+    }
+
+    .extra-price {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .extra-toggle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--text-light);
+      transition: all var(--transition);
+      flex-shrink: 0;
+      font-family: var(--font);
+    }
+
+    .extra-toggle:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .extra-item.selected .extra-toggle {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    /* INFO BUTTON */
+    .info-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      padding: 0 2px;
+      transition: color var(--transition);
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    .info-btn:hover {
+      color: var(--primary);
+    }
+
+    /* INFO TOOLTIP */
+    .info-tooltip {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      animation: fadeIn 0.15s ease;
+    }
+
+    .info-tooltip.open {
+      display: flex;
+    }
+
+    .info-tooltip-content {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      animation: modalIn 0.25s ease;
+    }
+
+    .info-tooltip-content p {
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      padding-right: 24px;
+    }
+
+    .info-tooltip-content p strong {
+      color: var(--primary);
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .info-tooltip-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: var(--bg-alt);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      transition: all var(--transition);
+      font-size: 0.9rem;
+    }
+
+    .info-tooltip-close:hover {
+      background: var(--border);
+      color: var(--text);
+    }
+
+    /* STEP 3: FORM */
+    .form-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .form-group label .required {
+      color: #EF4444;
+      margin-left: 2px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 0.95rem;
+      transition: all var(--transition);
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 119, 255, 0.1);
+    }
+
+    .form-group input.error,
+    .form-group textarea.error {
+      border-color: #EF4444;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+
+    .form-group .error-msg {
+      font-size: 0.78rem;
+      color: #EF4444;
+      margin-top: 4px;
+      display: none;
+    }
+
+    .form-group input.error ~ .error-msg,
+    .form-group textarea.error ~ .error-msg {
+      display: block;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* STEP 4: SUMMARY */
+    .summary-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .summary-header {
+      background: var(--gradient);
+      color: white;
+      padding: 24px 32px;
+    }
+
+    .summary-header h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .summary-header p {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      margin-top: 4px;
+    }
+
+    .summary-body {
+      padding: 24px 32px;
+    }
+
+    .summary-section-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .summary-plan {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .summary-plan h4 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .summary-plan .price {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .summary-extras {
+      padding: 12px 0;
+    }
+
+    .summary-extra {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+    }
+
+    .summary-extra .name {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.92rem;
+      color: var(--text-light);
+    }
+
+    .summary-extra .name i {
+      color: var(--primary);
+      font-size: 0.8rem;
+    }
+
+    .summary-extra .price {
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .summary-total {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0 0;
+      margin-top: 12px;
+      border-top: 2px solid var(--text);
+    }
+
+    .summary-total .label {
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .summary-total .price {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--primary);
+    }
+
+    .summary-empty {
+      padding: 20px 0;
+      color: var(--text-light);
+      font-size: 0.92rem;
+      font-style: italic;
+    }
+
+    .summary-client {
+      padding: 16px 32px;
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+    }
+
+    .summary-client h4 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .summary-client-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .summary-client-info .item {
+      font-size: 0.88rem;
+    }
+
+    .summary-client-info .item strong {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    /* NAVIGATION BUTTONS */
+    .step-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 32px;
+      gap: 16px;
+    }
+
+    .step-nav .left {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: none;
+      transition: all var(--transition);
+      font-family: var(--font);
+      text-align: center;
+      justify-content: center;
+    }
+
+    .btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      color: white;
+      box-shadow: 0 4px 16px rgba(0, 119, 255, 0.3);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      box-shadow: 0 6px 24px rgba(0, 119, 255, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--border);
+    }
+
+    .btn-outline:hover:not(:disabled) {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-light);
+      border: none;
+    }
+
+    .btn-ghost:hover:not(:disabled) {
+      color: var(--text);
+    }
+
+    .btn-success {
+      background: #10B981;
+      color: white;
+    }
+
+    .btn-success:hover:not(:disabled) {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+
+    .btn-danger {
+      background: transparent;
+      color: var(--text-light);
+      border: 1px solid var(--border);
+    }
+
+    .btn-danger:hover:not(:disabled) {
+      border-color: #EF4444;
+      color: #EF4444;
+    }
+
+    /* FLOATING TOTAL BAR */
+    .total-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      border-top: 2px solid var(--primary);
+      padding: 18px 24px;
+      z-index: 99;
+      transition: background var(--transition), border-color var(--transition), transform 0.3s ease;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 -4px 24px rgba(0, 119, 255, 0.08);
+    }
+
+    .total-bar-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .total-bar .info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .total-bar .info .label {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .total-bar .info .amount {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+      white-space: nowrap;
+    }
+
+    .total-bar .info .amount span:first-child {
+      font-size: 1rem;
+    }
+
+    .total-bar .info .amount .euro {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-light);
+    }
+
+    .total-bar .info .detail {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      white-space: nowrap;
+    }
+
+    .total-bar .btn {
+      flex-shrink: 0;
+    }
+
+    /* MODAL / UPSELL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal {
+      background: var(--bg);
+      border-radius: var(--radius);
+      max-width: 480px;
+      width: 100%;
+      padding: 36px;
+      box-shadow: var(--shadow-xl);
+      animation: modalIn 0.3s ease;
+      position: relative;
+    }
+
+    @keyframes modalIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .modal-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(245, 158, 11, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      color: #F59E0B;
+    }
+
+    .modal h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .modal p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .modal-actions .btn {
+      flex: 1;
+      min-width: 140px;
+    }
+
+    /* LOADING OVERLAY */
+    .loading-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .loading-overlay.active {
+      display: flex;
+    }
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      border-top-color: var(--primary-light);
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-overlay p {
+      color: white;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    /* SUCCESS */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 60px 24px;
+      animation: fadeSlideIn 0.6s ease;
+    }
+
+    .success-state.active {
+      display: block;
+    }
+
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 2rem;
+      color: #10B981;
+    }
+
+    .success-state h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .success-state p {
+      color: var(--text-light);
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .success-state .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 119, 255, 0.1);
+      color: var(--primary);
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-top: 16px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .plans-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .plan-card .popular-badge {
+        position: static;
+        display: inline-block;
+        margin-bottom: 12px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .progress-label {
+        display: none;
+      }
+
+      .progress-steps::before,
+      .progress-steps::after {
+        left: 24px;
+        right: 24px;
+      }
+
+      .progress-circle {
+        width: 28px;
+        height: 28px;
+        font-size: 0.7rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .form-card {
+        padding: 24px;
+      }
+
+      .summary-body,
+      .summary-header {
+        padding: 20px;
+      }
+
+      .summary-client {
+        padding: 16px 20px;
+      }
+
+      .summary-client-info {
+        grid-template-columns: 1fr;
+      }
+
+      .extra-item {
+        padding: 14px 16px;
+        flex-wrap: wrap;
+      }
+
+      .modal {
+        padding: 28px 24px;
+      }
+
+      .modal-actions {
+        flex-direction: column;
+      }
+
+      .modal-actions .btn {
+        width: 100%;
+      }
+
+      .total-bar .info {
+        gap: 6px;
+      }
+      .total-bar .info .label {
+        font-size: 0.65rem;
+      }
+      .total-bar .info .amount {
+        font-size: 0.85rem;
+      }
+      .total-bar .info .amount span:first-child {
+        font-size: 0.85rem;
+      }
+      .total-bar .info .detail {
+        font-size: 0.65rem;
+      }
+
+      .step-nav {
+        flex-direction: column-reverse;
+      }
+
+      .step-nav .left {
+        width: 100%;
+      }
+
+      .step-nav .left .btn {
+        flex: 1;
+      }
+
+      .step-nav .btn {
+        width: 100%;
+      }
+
+      .header-logo span {
+        display: none;
+      }
+
+      .btn-back-home span {
+        display: none;
+      }
+    }
+
+    /* REVEAL ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+    .reveal-delay-6 { transition-delay: 0.6s; }
+    .reveal-delay-7 { transition-delay: 0.7s; }
+
+    @media (max-width: 480px) {
+      .main {
+        padding: 24px 0 120px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .plan-card {
+        padding: 20px;
+      }
+
+      .extra-item {
+        padding: 12px 14px;
+      }
+
+      .extra-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+      }
+
+      .extra-toggle {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="header-logo">
+          <img class="logo-mark" src="logo-redondo.png" alt="CanaryWeb Studio" width="32" height="32">
+          <span>CanaryWeb Studio</span>
+        </a>
+        <div class="header-actions">
+          <a href="index.html" class="btn-back-home">
+            <i class="fas fa-arrow-left"></i>
+            <span>Volver</span>
+          </a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo oscuro">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROGRESS -->
+  <section class="progress-section">
+    <div class="container">
+      <div class="progress-steps" id="progressSteps" data-step="1">
+        <div class="progress-step active" data-index="1">
+          <div class="progress-circle">1</div>
+          <div class="progress-label">Plan</div>
+        </div>
+        <div class="progress-step" data-index="2">
+          <div class="progress-circle">2</div>
+          <div class="progress-label">Extras</div>
+        </div>
+        <div class="progress-step" data-index="3">
+          <div class="progress-circle">3</div>
+          <div class="progress-label">Datos</div>
+        </div>
+        <div class="progress-step" data-index="4">
+          <div class="progress-circle">4</div>
+          <div class="progress-label">Resumen</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="container">
+
+      <!-- SUCCESS STATE -->
+      <div class="success-state" id="successState">
+        <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+        <h2>¡Solicitud enviada con éxito!</h2>
+        <p>Gracias por confiar en CanaryWeb Studio.</p>
+        <p style="color: var(--text-light); font-size: 0.92rem;">Te responderemos en menos de 24 horas con un presupuesto personalizado.</p>
+        <div class="badge">
+          <i class="fas fa-envelope"></i>
+          Recibirás una copia en tu correo
+        </div>
+        <div style="margin-top: 32px;">
+          <a href="index.html" class="btn btn-primary">
+            <i class="fas fa-home"></i> Volver al inicio
+          </a>
+        </div>
+      </div>
+
+      <!-- STEP 1: PLAN -->
+      <div class="step-container active" id="step1">
+        <h1 class="step-title">Elige tu plan</h1>
+        <p class="step-desc">Selecciona el plan que mejor se adapte a tu negocio. Puedes añadir extras en el siguiente paso.</p>
+
+        <div class="plans-grid" id="plansGrid">
+          <div class="plan-card" data-plan="starter" data-price="79" onclick="selectPlan('starter')">
+            <h3>Starter</h3>
+            <div class="plan-price">79 <span>€</span></div>
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> 1 página</li>
+              <li><i class="fas fa-check"></i> Diseño responsive</li>
+              <li><i class="fas fa-check"></i> WhatsApp</li>
+              <li><i class="fas fa-check"></i> Formulario de contacto</li>
+              <li><i class="fas fa-check"></i> Google Maps</li>
+              <li><i class="fas fa-check"></i> 7 días de soporte</li>
+            </ul>
+            <div class="plan-check"><i class="fas fa-check"></i></div>
+          </div>
+
+          <div class="plan-card" data-plan="business" data-price="199" onclick="selectPlan('business')">
+            <div class="popular-badge">Más popular</div>
+            <h3>Business</h3>
+            <div class="plan-price">199 <span>€</span></div>
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> Hasta 5 páginas</li>
+              <li><i class="fas fa-check"></i> Todo lo anterior</li>
+              <li><i class="fas fa-check"></i> Galería de imágenes</li>
+              <li><i class="fas fa-check"></i> SEO básico</li>
+              <li><i class="fas fa-check"></i> Diseño personalizado</li>
+              <li><i class="fas fa-check"></i> 30 días de soporte</li>
+            </ul>
+            <div class="plan-check"><i class="fas fa-check"></i></div>
+          </div>
+
+          <div class="plan-card" data-plan="premium" data-price="399" onclick="selectPlan('premium')">
+            <h3>Premium</h3>
+            <div class="plan-price">399 <span>€</span></div>
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> Hasta 10 páginas</li>
+              <li><i class="fas fa-check"></i> Todo lo anterior</li>
+              <li><i class="fas fa-check"></i> Blog</li>
+              <li><i class="fas fa-check"></i> SEO avanzado</li>
+              <li><i class="fas fa-check"></i> Sistema de reservas</li>
+              <li><i class="fas fa-check"></i> Estadísticas de visitas</li>
+              <li><i class="fas fa-check"></i> 90 días de soporte</li>
+            </ul>
+            <div class="plan-check"><i class="fas fa-check"></i></div>
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <div></div>
+          <button class="btn btn-primary" id="toStep2" disabled onclick="goToStep(2)">
+            Continuar <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: EXTRAS -->
+      <div class="step-container" id="step2">
+        <h2 class="step-title">Añade servicios extra</h2>
+        <p class="step-desc">Personaliza tu web con estos servicios adicionales. Solo pagas por lo que necesites.</p>
+
+        <div class="extras-list" id="extrasList">
+          <div class="extra-item reveal reveal-delay-1" data-extra="dominio" data-price="15" onclick="toggleExtra('dominio')">
+            <div class="extra-icon"><i class="fas fa-link"></i></div>
+            <div class="extra-info">
+              <h4>Dominio <button class="info-btn" onclick="event.stopPropagation(); showInfo('dominio')" type="button" aria-label="Más información"><i class="fas fa-info-circle"></i></button></h4>
+              <p>Nombre .com, .es o .org para tu web</p>
+            </div>
+            <div class="extra-price">15 €/año</div>
+            <button class="extra-toggle" aria-label="Añadir Dominio">+</button>
+          </div>
+
+          <div class="extra-item reveal reveal-delay-2" data-extra="hosting" data-price="60" onclick="toggleExtra('hosting')">
+            <div class="extra-icon"><i class="fas fa-server"></i></div>
+            <div class="extra-info">
+              <h4>Hosting <button class="info-btn" onclick="event.stopPropagation(); showInfo('hosting')" type="button" aria-label="Más información"><i class="fas fa-info-circle"></i></button></h4>
+              <p>Alojamiento web rápido y seguro</p>
+            </div>
+            <div class="extra-price">60 €/año</div>
+            <button class="extra-toggle" aria-label="Añadir Hosting">+</button>
+          </div>
+
+          <div class="extra-item reveal reveal-delay-3" data-extra="correo" data-price="30" onclick="toggleExtra('correo')">
+            <div class="extra-icon"><i class="fas fa-envelope"></i></div>
+            <div class="extra-info">
+              <h4>Correo profesional <button class="info-btn" onclick="event.stopPropagation(); showInfo('correo')" type="button" aria-label="Más información"><i class="fas fa-info-circle"></i></button></h4>
+              <p>Cuenta de email con tu propio dominio</p>
+            </div>
+            <div class="extra-price">30 €/año</div>
+            <button class="extra-toggle" aria-label="Añadir Correo">+</button>
+          </div>
+
+          <div class="extra-item reveal reveal-delay-4" data-extra="logo" data-price="40" onclick="toggleExtra('logo')">
+            <div class="extra-icon"><i class="fas fa-paint-brush"></i></div>
+            <div class="extra-info">
+              <h4>Logo profesional <button class="info-btn" onclick="event.stopPropagation(); showInfo('logo')" type="button" aria-label="Más información"><i class="fas fa-info-circle"></i></button></h4>
+              <p>Diseño de logotipo para tu marca</p>
+            </div>
+            <div class="extra-price">40 €</div>
+            <button class="extra-toggle" aria-label="Añadir Logo">+</button>
+          </div>
+
+          <div class="extra-item reveal reveal-delay-5" data-extra="traduccion" data-price="50" onclick="toggleExtra('traduccion')">
+            <div class="extra-icon"><i class="fas fa-language"></i></div>
+            <div class="extra-info">
+              <h4>Traducción al inglés <button class="info-btn" onclick="event.stopPropagation(); showInfo('traduccion')" type="button" aria-label="Más información"><i class="fas fa-info-circle"></i></button></h4>
+              <p>Web completamente bilingüe</p>
+            </div>
+            <div class="extra-price">50 €</div>
+            <button class="extra-toggle" aria-label="Añadir Traducción">+</button>
+          </div>
+
+          <div class="extra-item reveal reveal-delay-6" data-extra="tienda" data-price="200" onclick="toggleExtra('tienda')">
+            <div class="extra-icon"><i class="fas fa-shopping-cart"></i></div>
+            <div class="extra-info">
+              <h4>Tienda online <button class="info-btn" onclick="event.stopPropagation(); showInfo('tienda')" type="button" aria-label="Más información"><i class="fas fa-info-circle"></i></button></h4>
+              <p>Sistema de ventas y catálogo de productos</p>
+            </div>
+            <div class="extra-price">200 €</div>
+            <button class="extra-toggle" aria-label="Añadir Tienda">+</button>
+          </div>
+
+          <div class="extra-item reveal reveal-delay-7" data-extra="mantenimiento" data-price="15" onclick="toggleExtra('mantenimiento')">
+            <div class="extra-icon"><i class="fas fa-sync-alt"></i></div>
+            <div class="extra-info">
+              <h4>Mantenimiento mensual <button class="info-btn" onclick="event.stopPropagation(); showInfo('mantenimiento')" type="button" aria-label="Más información"><i class="fas fa-info-circle"></i></button></h4>
+              <p>Actualizaciones, seguridad y soporte continuo</p>
+            </div>
+            <div class="extra-price">15 €/mes</div>
+            <button class="extra-toggle" aria-label="Añadir Mantenimiento">+</button>
+          </div>
+        </div>
+
+        <!-- TOOLTIP -->
+        <div class="info-tooltip" id="infoTooltip">
+          <div class="info-tooltip-content">
+            <button class="info-tooltip-close" onclick="hideInfo()" aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
+            <p id="infoTooltipText"></p>
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <div class="left">
+            <button class="btn btn-ghost" onclick="goToStep(1)">
+              <i class="fas fa-arrow-left"></i> Atrás
+            </button>
+          </div>
+          <button class="btn btn-primary" onclick="goToStep(3)">
+            Continuar <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3: FORM -->
+      <div class="step-container" id="step3">
+        <h2 class="step-title">Tus datos</h2>
+        <p class="step-desc">Completa el formulario para que podamos enviarte el presupuesto personalizado.</p>
+
+        <div class="form-card">
+          <form id="clientForm" novalidate>
+            <div class="form-group">
+              <label for="fullname">Nombre completo <span class="required">*</span></label>
+              <input type="text" id="fullname" name="fullname" placeholder="Ej: María García" required>
+              <div class="error-msg">Este campo es obligatorio</div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="company">Empresa</label>
+                <input type="text" id="company" name="company" placeholder="Nombre de tu negocio">
+              </div>
+              <div class="form-group">
+                <label for="email">Correo electrónico <span class="required">*</span></label>
+                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                <div class="error-msg">Introduce un email válido</div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Teléfono <span class="required">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="+34 600 000 000" required>
+                <div class="error-msg">Este campo es obligatorio</div>
+              </div>
+              <div class="form-group">
+                <label for="currentUrl">Web actual (opcional)</label>
+                <input type="url" id="currentUrl" name="currentUrl" placeholder="https://tusitio.com">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Mensaje adicional</label>
+              <textarea id="message" name="message" placeholder="Cuéntanos más sobre tu proyecto, ideas o requisitos especiales..."></textarea>
+            </div>
+          </form>
+        </div>
+
+        <div class="step-nav">
+          <div class="left">
+            <button class="btn btn-ghost" onclick="goToStep(2)">
+              <i class="fas fa-arrow-left"></i> Atrás
+            </button>
+          </div>
+          <button class="btn btn-primary" id="toStep4" onclick="validateAndGoStep4()">
+            Continuar <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 4: SUMMARY -->
+      <div class="step-container" id="step4">
+        <h2 class="step-title">Revisa tu solicitud</h2>
+        <p class="step-desc">Antes de enviar, confirma que todos los datos sean correctos.</p>
+
+        <div class="summary-card" id="summaryCard">
+          <div class="summary-header">
+            <h3><i class="fas fa-file-invoice"></i> Resumen del presupuesto</h3>
+            <p>CanaryWeb Studio &mdash; La web que tu empresa necesita.</p>
+          </div>
+          <div class="summary-body">
+            <div class="summary-section-title">Plan seleccionado</div>
+            <div class="summary-plan" id="summaryPlan">
+              <h4 id="summaryPlanName">—</h4>
+              <div class="price" id="summaryPlanPrice">—</div>
+            </div>
+
+            <div style="margin-top: 20px;">
+              <div class="summary-section-title">Extras seleccionados</div>
+              <div class="summary-extras" id="summaryExtras">
+                <div class="summary-empty">No has seleccionado ningún extra</div>
+              </div>
+            </div>
+
+            <div class="summary-total">
+              <div class="label">TOTAL</div>
+              <div class="price" id="summaryTotal">0 €</div>
+            </div>
+          </div>
+          <div class="summary-client" id="summaryClient" style="display:none;">
+            <h4>Datos del cliente</h4>
+            <div class="summary-client-info" id="summaryClientInfo"></div>
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <div class="left">
+            <button class="btn btn-ghost" onclick="goToStep(3)">
+              <i class="fas fa-arrow-left"></i> Atrás
+            </button>
+          </div>
+          <button class="btn btn-success" id="submitBtn" onclick="handleSubmit()">
+            <i class="fas fa-paper-plane"></i> Enviar solicitud
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FLOATING TOTAL BAR -->
+  <div class="total-bar" id="totalBar">
+    <div class="total-bar-inner">
+      <div class="info">
+        <div class="label">Presupuesto estimado</div>
+        <div class="amount"><span id="totalAmount">0</span> <span class="euro">€</span></div>
+        <div class="detail" id="totalDetail">Selecciona un plan</div>
+      </div>
+      <button class="btn btn-primary" id="floatingCta" onclick="handleFloatingCta()" style="display: none;">
+        Continuar <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- UPSELL MODAL -->
+  <div class="modal-overlay" id="upsellModal">
+    <div class="modal">
+      <div class="modal-icon"><i class="fas fa-lightbulb"></i></div>
+      <h3 id="upsellTitle">¿Añadir este extra?</h3>
+      <p id="upsellDesc">Descripción del upsell.</p>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="upsellAccept">
+          <i class="fas fa-plus"></i> <span id="upsellAcceptText">Añadir</span>
+        </button>
+        <button class="btn btn-danger" id="upsellSkip">Continuar sin añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOADING OVERLAY -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+    <p>Preparando tu presupuesto...</p>
+  </div>
+
+  <script>
+    // ============ STATE ============
+    const state = {
+      selectedPlan: null,
+      planPrice: 0,
+      planName: '',
+      extras: {},
+      clientData: {}
+    };
+
+    const EXTRA_NAMES = {
+      dominio: { name: 'Dominio', price: 15, desc: 'Nombre .com, .es o .org para tu web' },
+      hosting: { name: 'Hosting', price: 60, desc: 'Alojamiento web rápido y seguro' },
+      correo: { name: 'Correo profesional', price: 30, desc: 'Cuenta de email con tu propio dominio' },
+      logo: { name: 'Logo profesional', price: 40, desc: 'Diseño de logotipo para tu marca' },
+      traduccion: { name: 'Traducción al inglés', price: 50, desc: 'Web completamente bilingüe' },
+      tienda: { name: 'Tienda online', price: 200, desc: 'Sistema de ventas y catálogo de productos' },
+      mantenimiento: { name: 'Mantenimiento mensual', price: 15, desc: 'Actualizaciones, seguridad y soporte continuo' }
+    };
+
+    const PLAN_NAMES = {
+      starter: 'Starter',
+      business: 'Business',
+      premium: 'Premium'
+    };
+
+    // ============ DARK MODE ============
+    const themeToggle = document.getElementById('themeToggle');
+    const icon = themeToggle.querySelector('i');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      icon.className = 'fas fa-sun';
+    }
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      icon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    });
+
+    // ============ STEP NAVIGATION ============
+    let currentStep = 1;
+
+    function goToStep(step) {
+      if (step === 2 && !state.selectedPlan) return;
+      if (step === 4) { buildSummary(); }
+      document.querySelectorAll('.step-container').forEach(el => el.classList.remove('active'));
+      document.getElementById('step' + step).classList.add('active');
+      const progress = document.getElementById('progressSteps');
+      progress.dataset.step = step;
+      document.querySelectorAll('.progress-step').forEach(el => {
+        const idx = parseInt(el.dataset.index);
+        el.classList.toggle('active', idx === step);
+        el.classList.toggle('done', idx < step);
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      currentStep = step;
+      updateFloatingCta();
+
+      if (step === 2) {
+        document.querySelectorAll('#step2 .reveal').forEach((el, i) => {
+          setTimeout(() => el.classList.add('visible'), i * 100);
+        });
+      }
+    }
+
+    // ============ PLAN SELECTION ============
+    function selectPlan(plan) {
+      state.selectedPlan = plan;
+      state.planName = PLAN_NAMES[plan];
+      const prices = { starter: 79, business: 199, premium: 399 };
+      state.planPrice = prices[plan];
+
+      document.querySelectorAll('.plan-card').forEach(el => {
+        el.classList.toggle('selected', el.dataset.plan === plan);
+      });
+
+      document.getElementById('toStep2').disabled = false;
+      updateTotal();
+    }
+
+    // ============ EXTRAS TOGGLE ============
+    function toggleExtra(key) {
+      const item = document.querySelector(`.extra-item[data-extra="${key}"]`);
+      if (!item) return;
+      const isSelected = item.classList.contains('selected');
+      if (isSelected) {
+        item.classList.remove('selected');
+        item.querySelector('.extra-toggle').textContent = '+';
+        delete state.extras[key];
+      } else {
+        item.classList.add('selected');
+        item.querySelector('.extra-toggle').textContent = '✓';
+        state.extras[key] = EXTRA_NAMES[key];
+      }
+      updateTotal();
+    }
+
+    // ============ PRICE CALCULATION ============
+    function getExtraTotal() {
+      return Object.values(state.extras).reduce((sum, e) => sum + e.price, 0);
+    }
+
+    function getTotal() {
+      return state.planPrice + getExtraTotal();
+    }
+
+    function updateTotal() {
+      const total = getTotal();
+      document.getElementById('totalAmount').textContent = total;
+
+      const detail = document.getElementById('totalDetail');
+      if (state.selectedPlan) {
+        const extraCount = Object.keys(state.extras).length;
+        detail.textContent = `${state.planName} (${state.planPrice} €)${extraCount > 0 ? ` + ${extraCount} extra${extraCount > 1 ? 's' : ''}` : ''}`;
+      } else {
+        detail.textContent = 'Selecciona un plan';
+      }
+
+      document.getElementById('summaryTotal').textContent = total + ' €';
+      document.getElementById('summaryPlanName').textContent = state.planName || '—';
+      document.getElementById('summaryPlanPrice').textContent = (state.planPrice || 0) + ' €';
+
+      // Update summary extras
+      const container = document.getElementById('summaryExtras');
+      const entries = Object.entries(state.extras);
+      if (entries.length === 0) {
+        container.innerHTML = '<div class="summary-empty">No has seleccionado ningún extra</div>';
+      } else {
+        container.innerHTML = entries.map(([key, val]) =>
+          `<div class="summary-extra">
+            <div class="name"><i class="fas fa-check-circle"></i> ${val.name}</div>
+            <div class="price">${val.price} €</div>
+          </div>`
+        ).join('');
+      }
+    }
+
+    // ============ SUMMARY BUILD ============
+    function buildSummary() {
+      updateTotal();
+      const clientInfo = document.getElementById('summaryClientInfo');
+      const data = state.clientData;
+      let html = '';
+      if (data.fullname) html += `<div class="item"><strong>Nombre</strong>${data.fullname}</div>`;
+      if (data.company) html += `<div class="item"><strong>Empresa</strong>${data.company}</div>`;
+      if (data.email) html += `<div class="item"><strong>Email</strong>${data.email}</div>`;
+      if (data.phone) html += `<div class="item"><strong>Teléfono</strong>${data.phone}</div>`;
+      if (data.currentUrl) html += `<div class="item"><strong>Web actual</strong>${data.currentUrl}</div>`;
+      if (html) {
+        clientInfo.innerHTML = html;
+        document.getElementById('summaryClient').style.display = 'block';
+      }
+    }
+
+    // ============ FORM VALIDATION ============
+    function validateAndGoStep4() {
+      const form = document.getElementById('clientForm');
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+
+      required.forEach(input => {
+        input.classList.remove('error');
+        if (!input.value.trim()) {
+          input.classList.add('error');
+          valid = false;
+        }
+        if (input.type === 'email' && input.value.trim()) {
+          const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!re.test(input.value.trim())) {
+            input.classList.add('error');
+            valid = false;
+          }
+        }
+      });
+
+      if (!valid) {
+        const firstError = form.querySelector('.error');
+        if (firstError) firstError.focus();
+        return;
+      }
+
+      state.clientData = {
+        fullname: document.getElementById('fullname').value.trim(),
+        company: document.getElementById('company').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        currentUrl: document.getElementById('currentUrl').value.trim(),
+        message: document.getElementById('message').value.trim()
+      };
+
+      goToStep(4);
+    }
+
+    // ============ UPSELL SYSTEM ============
+    const upsellQueue = [];
+    let upsellResolve = null;
+
+    const UPSELl_RULES = [
+      {
+        key: 'hosting',
+        title: '¿Añadir hosting?',
+        desc: '¿Seguro que no quieres añadir Hosting? Es necesario para publicar tu web en Internet.',
+        acceptText: 'Añadir Hosting',
+        skipText: 'Continuar sin Hosting'
+      },
+      {
+        key: 'dominio',
+        title: '¿Añadir dominio?',
+        desc: 'Muchos clientes añaden un dominio profesional para mejorar su imagen online. ¿Quieres añadirlo?',
+        acceptText: 'Añadir Dominio',
+        skipText: 'Continuar sin Dominio'
+      },
+      {
+        key: 'logo',
+        title: '¿Quieres un logo profesional?',
+        desc: '¿Quieres que creemos también el logo de tu empresa? Una identidad visual única para tu marca.',
+        acceptText: 'Añadir Logo',
+        skipText: 'No, gracias'
+      }
+    ];
+
+    function buildUpsellQueue() {
+      upsellQueue.length = 0;
+      UPSELl_RULES.forEach(rule => {
+        if (!state.extras[rule.key]) {
+          upsellQueue.push(rule);
+        }
+      });
+    }
+
+    function showUpsell(rule) {
+      return new Promise((resolve) => {
+        upsellResolve = resolve;
+        document.getElementById('upsellTitle').textContent = rule.title;
+        document.getElementById('upsellDesc').textContent = rule.desc;
+        document.getElementById('upsellAcceptText').textContent = rule.acceptText;
+        document.getElementById('upsellAccept').onclick = () => {
+          closeUpsell();
+          resolve('accept');
+        };
+        document.getElementById('upsellSkip').onclick = () => {
+          closeUpsell();
+          resolve('skip');
+        };
+        document.getElementById('upsellModal').classList.add('open');
+      });
+    }
+
+    function closeUpsell() {
+      document.getElementById('upsellModal').classList.remove('open');
+    }
+
+    // ============ SUBMIT ============
+    async function handleSubmit() {
+      buildUpsellQueue();
+
+      for (const rule of upsellQueue) {
+        const action = await showUpsell(rule);
+        if (action === 'accept') {
+          toggleExtra(rule.key);
+        }
+      }
+
+      // Final submit
+      const loading = document.getElementById('loadingOverlay');
+      loading.classList.add('active');
+
+      await new Promise(r => setTimeout(r, 2000));
+
+      loading.classList.remove('active');
+
+      const result = {
+        plan: state.selectedPlan,
+        planName: state.planName,
+        planPrice: state.planPrice,
+        extras: state.extras,
+        total: getTotal(),
+        client: state.clientData,
+        date: new Date().toISOString()
+      };
+
+      console.log('Presupuesto solicitado:', result);
+
+      // Show success
+      document.querySelectorAll('.step-container').forEach(el => el.classList.remove('active'));
+      document.getElementById('successState').classList.add('active');
+      document.getElementById('totalBar').style.transform = 'translateY(100%)';
+      document.getElementById('progressSteps').style.opacity = '0.3';
+    }
+
+    // ============ FLOATING CTA ============
+    function handleFloatingCta() {
+      if (currentStep === 1 && state.selectedPlan) {
+        goToStep(2);
+      } else if (currentStep === 2) {
+        goToStep(3);
+      } else if (currentStep === 3) {
+        validateAndGoStep4();
+      } else if (currentStep === 4) {
+        handleSubmit();
+      }
+    }
+
+    function updateFloatingCta() {
+      const btn = document.getElementById('floatingCta');
+      if (currentStep === 1) {
+        btn.textContent = 'Continuar';
+        btn.disabled = !state.selectedPlan;
+      } else if (currentStep === 2) {
+        btn.textContent = 'Continuar';
+        btn.disabled = false;
+      } else if (currentStep === 3) {
+        btn.textContent = 'Continuar';
+        btn.disabled = false;
+      } else if (currentStep === 4) {
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar solicitud';
+        btn.disabled = false;
+      }
+    }
+
+    // ============ KEYBOARD ============
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.getElementById('upsellModal').classList.contains('open')) {
+        closeUpsell();
+        if (upsellResolve) upsellResolve('skip');
+      }
+    });
+
+    // ============ INFO TOOLTIP ============
+
+    const INFO_TEXTS = {
+      dominio: 'Si no contratas un dominio propio, tu web tendrá una dirección estándar: <strong>https://fabiinformatic.github.io/tu-pagina/</strong>. Con un dominio propio (.com, .es) tu web se verá más profesional.',
+      hosting: 'Sin hosting tu web no estaría visible en Internet. Este servicio incluye alojamiento rápido, seguro y con certificado SSL para que tu web funcione 24/7.',
+      correo: 'Tener un correo con tu propio dominio (@tuempresa.com) transmite mucha más profesionalidad que Gmail o Yahoo. Incluye varias cuentas.',
+      logo: 'Un logotipo profesional ayuda a que tus clientes te reconozcan y recuerden. Incluye diseño personalizado, fuentes y paleta de colores.',
+      traduccion: 'Traduce tu web al inglés para llegar a clientes internacionales y turistas. Incluye todas las páginas y secciones.',
+      tienda: 'Vende tus productos directamente desde la web con carrito de compra, pasarela de pago y gestión de pedidos incluida.',
+      mantenimiento: 'Mantenemos tu web actualizada con las últimas versiones, seguridad reforzada, copias de seguridad y soporte técnico prioritario.'
+    };
+
+    function showInfo(key) {
+      const text = INFO_TEXTS[key];
+      if (!text) return;
+      document.getElementById('infoTooltipText').innerHTML = text;
+      document.getElementById('infoTooltip').classList.add('open');
+    }
+
+    function hideInfo() {
+      document.getElementById('infoTooltip').classList.remove('open');
+    }
+
+    document.getElementById('infoTooltip').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) hideInfo();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') hideInfo();
+    });
+
+    // ============ REVEAL ============
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ============ INIT ============
+
+    // Auto-select plan from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const planParam = urlParams.get('plan');
+    if (planParam && ['starter', 'business', 'premium'].includes(planParam)) {
+      selectPlan(planParam);
+    }
+
+    updateTotal();
+    updateFloatingCta();
+  </script>
+</body>
+</html>
