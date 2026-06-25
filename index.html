@@ -875,18 +875,6 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 24px;
-      position: relative;
-    }
-
-    .process-grid::before {
-      content: '';
-      position: absolute;
-      top: 24px;
-      left: calc(24px + 4%);
-      right: calc(24px + 4%);
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary), var(--border), var(--border), var(--border), transparent);
-      z-index: 0;
     }
 
     .process-step {
@@ -1360,9 +1348,6 @@
       }
       .process-grid {
         grid-template-columns: repeat(3, 1fr);
-      }
-      .process-grid::before {
-        display: none;
       }
       .testimonials-grid {
         grid-template-columns: 1fr;
