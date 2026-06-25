@@ -1233,29 +1233,43 @@
     .client-logo {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 16px 20px;
+      border-radius: var(--radius);
+      padding: 28px 20px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      gap: 12px;
       transition: all var(--transition);
       cursor: default;
+      text-align: center;
     }
 
     .client-logo:hover {
       border-color: var(--primary);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
     }
 
-    .client-logo svg {
-      width: 100%;
-      height: 36px;
+    .client-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
     }
 
-    .client-logo svg text {
-      fill: var(--text);
-      transition: fill var(--transition);
+    .client-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .client-desc {
+      font-size: 0.82rem;
+      color: var(--text-light);
     }
 
     /* WHATSAPP FLOAT */
@@ -1852,52 +1866,34 @@
       </div>
       <div class="clients-grid">
         <div class="client-logo reveal">
-          <svg viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="6" width="20" height="20" rx="4" fill="#0077FF" opacity="0.15"/>
-            <rect x="4" y="8" width="16" height="16" rx="3" fill="#0077FF" opacity="0.3"/>
-            <text x="28" y="25" font-family="Inter,sans-serif" font-weight="700" font-size="13" fill="var(--text)">Clínicas</text>
-            <text x="28" y="36" font-family="Inter,sans-serif" font-weight="400" font-size="9" fill="var(--text-light)">Dentales</text>
-          </svg>
+          <div class="client-icon" style="background: #0077FF;"><i class="fas fa-tooth"></i></div>
+          <div class="client-name">Clínicas Dentales</div>
+          <div class="client-desc">Consultas y centros de salud dental</div>
         </div>
         <div class="client-logo reveal reveal-delay-1">
-          <svg viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="16" r="10" fill="#10B981" opacity="0.15"/>
-            <circle cx="12" cy="16" r="7" fill="#10B981" opacity="0.3"/>
-            <text x="28" y="25" font-family="Inter,sans-serif" font-weight="700" font-size="13" fill="var(--text)">Restaurantes</text>
-            <text x="28" y="36" font-family="Inter,sans-serif" font-weight="400" font-size="9" fill="var(--text-light)">y Cafeterías</text>
-          </svg>
+          <div class="client-icon" style="background: #10B981;"><i class="fas fa-utensils"></i></div>
+          <div class="client-name">Restaurantes</div>
+          <div class="client-desc">Bares, cafeterías y restaurantes</div>
         </div>
         <div class="client-logo reveal reveal-delay-2">
-          <svg viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 26L12 6L22 26H2Z" fill="#F59E0B" opacity="0.15"/>
-            <path d="M5 24L12 10L19 24H5Z" fill="#F59E0B" opacity="0.3"/>
-            <text x="28" y="25" font-family="Inter,sans-serif" font-weight="700" font-size="13" fill="var(--text)">Tours y</text>
-            <text x="28" y="36" font-family="Inter,sans-serif" font-weight="400" font-size="9" fill="var(--text-light)">Excursiones</text>
-          </svg>
+          <div class="client-icon" style="background: #F59E0B;"><i class="fas fa-mountain"></i></div>
+          <div class="client-name">Tours y Excursiones</div>
+          <div class="client-desc">Empresas de turismo y ocio</div>
         </div>
         <div class="client-logo reveal reveal-delay-3">
-          <svg viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="6" width="20" height="22" rx="3" fill="#8B5CF6" opacity="0.15"/>
-            <rect x="4" y="10" width="16" height="14" rx="2" fill="#8B5CF6" opacity="0.3"/>
-            <text x="28" y="25" font-family="Inter,sans-serif" font-weight="700" font-size="13" fill="var(--text)">Tecnología</text>
-            <text x="28" y="36" font-family="Inter,sans-serif" font-weight="400" font-size="9" fill="var(--text-light)">y Software</text>
-          </svg>
+          <div class="client-icon" style="background: #8B5CF6;"><i class="fas fa-laptop-code"></i></div>
+          <div class="client-name">Tecnología</div>
+          <div class="client-desc">Startups y empresas de software</div>
         </div>
         <div class="client-logo reveal reveal-delay-4">
-          <svg viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="8" width="10" height="16" rx="2" fill="#EF4444" opacity="0.15"/>
-            <rect x="14" y="8" width="10" height="16" rx="2" fill="#EF4444" opacity="0.3"/>
-            <text x="28" y="25" font-family="Inter,sans-serif" font-weight="700" font-size="13" fill="var(--text)">Hoteles</text>
-            <text x="28" y="36" font-family="Inter,sans-serif" font-weight="400" font-size="9" fill="var(--text-light)">y Alojamientos</text>
-          </svg>
+          <div class="client-icon" style="background: #EF4444;"><i class="fas fa-hotel"></i></div>
+          <div class="client-name">Hoteles</div>
+          <div class="client-desc">Alojamientos y complejos turísticos</div>
         </div>
         <div class="client-logo reveal reveal-delay-5">
-          <svg viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="16" r="10" fill="#0077FF" opacity="0.15"/>
-            <path d="M7 16L10 19L17 12" stroke="#0077FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <text x="28" y="25" font-family="Inter,sans-serif" font-weight="700" font-size="13" fill="var(--text)">Fitness</text>
-            <text x="28" y="36" font-family="Inter,sans-serif" font-weight="400" font-size="9" fill="var(--text-light)">y Bienestar</text>
-          </svg>
+          <div class="client-icon" style="background: #0077FF;"><i class="fas fa-dumbbell"></i></div>
+          <div class="client-name">Fitness y Bienestar</div>
+          <div class="client-desc">Gimnasios, spas y centros deportivos</div>
         </div>
       </div>
     </div>
