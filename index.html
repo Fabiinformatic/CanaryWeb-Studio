@@ -1923,7 +1923,7 @@
             </div>
           </div>
         </div>
-        <form class="contact-form reveal reveal-delay-1" id="contactForm">
+        <form class="contact-form reveal reveal-delay-1" id="contactForm" action="https://formspree.io/f/mykqeeyr" method="POST">
           <div class="form-row">
             <div class="form-group">
               <label for="name">Nombre</label>
@@ -2094,18 +2094,32 @@
     const form = document.getElementById('contactForm');
     const successMsg = document.getElementById('formSuccess');
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = form.querySelector('.btn');
+      const data = new FormData(form);
+
       btn.disabled = true;
       btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-      setTimeout(() => {
-        form.reset();
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Solicitar presupuesto';
-        successMsg.classList.add('show');
-        setTimeout(() => successMsg.classList.remove('show'), 5000);
-      }, 1500);
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.reset();
+          successMsg.classList.add('show');
+          setTimeout(() => successMsg.classList.remove('show'), 5000);
+        }
+      } catch (err) {
+        alert('Error al enviar. Inténtalo de nuevo.');
+      }
+
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Solicitar presupuesto';
     });
   </script>
 </body>
